@@ -54,7 +54,8 @@
     <ManifestCertificateThumbprint>F5448862755DF4C8E4E06EBA80DAA60C69BEE39F</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>BingWallpaperTest_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
