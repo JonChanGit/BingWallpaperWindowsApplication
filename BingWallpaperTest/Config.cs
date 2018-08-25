@@ -33,6 +33,11 @@ namespace BingWallpaperTest
             return string.Format(WallpaperInfoUrlTemplate, index);
         }
 
+        public enum SiteType{
+            International,
+            znCN
+        }
+
 
         /// <summary>
         /// 国际版壁纸地址构造

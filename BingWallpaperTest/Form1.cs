@@ -23,12 +23,16 @@ namespace BingWallpaperTest
         }
 
         /// <summary>
-        /// 获取1图片
+        /// 按钮——获取1图片
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnGetImage_Click(object sender, EventArgs e)
         {
+            GetImage();
+        }
+
+        private void GetImage() {
             tip.Text = "";
             if (String.IsNullOrEmpty(tbFileDirectory.Text))
             {
@@ -37,10 +41,12 @@ namespace BingWallpaperTest
                 return;
             }
             BingImage image = null;
-            try {
-                image = BingWallpaperService.getURL();
+            try
+            {
+                image = BingWallpaperService.getURL(Config.SiteType.znCN,1)[0];
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 tip.Text = "获取地址失败：" + ex.Message;
                 tip.ForeColor = Color.Red;
                 return;
@@ -54,7 +60,8 @@ namespace BingWallpaperTest
                     setWallpaperApi(location);
                     tip.Text = "壁纸设置成功";
                 }
-                else {
+                else
+                {
                     tip.Text = "保存成功";
                 }
                 tip.ForeColor = Color.Black;
@@ -92,7 +99,7 @@ namespace BingWallpaperTest
         }
 
         /// <summary>
-        /// 批量获取图片
+        /// 按钮——批量获取图片
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -119,9 +126,8 @@ namespace BingWallpaperTest
         /// </summary>
         /// <param name="index">张数</param>
         private void getImage(int index)
-        {
-            String str  = Config.WallpaperInfoUrlBuild(index);
-            List<BingImage> images = BingWallpaperService.getURL(str);
+        { 
+            List<BingImage> images = BingWallpaperService.getURL(Config.SiteType.znCN,index);
 
             foreach(BingImage iamge in images) {
                 try

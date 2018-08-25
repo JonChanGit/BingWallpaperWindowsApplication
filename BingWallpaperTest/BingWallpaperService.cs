@@ -17,20 +17,39 @@ namespace BingWallpaperTest
     class BingWallpaperService
     {
 
-        public static BingImage getURL()
+        /// <summary>
+        /// 获取图片真实URL
+        /// </summary>
+        /// <param name="type">站点类型</param>
+        /// <param name="imageSize">图片数量</param>
+        /// <returns></returns>
+        public static List<BingImage> getURL(Config.SiteType type,int imageSize)
         {
-            List<BingImage> images= getURL(Config.WallpaperInfoUrlBuild(1));
-            return images[0];
+            List<BingImage> images =null;
+            switch (type)
+            {
+                case Config.SiteType.International:
+                    images = getURL(Config.WallpaperInfoUrlInternationalBuild(imageSize));
+                    break;
+                case Config.SiteType.znCN:
+                    images = getURL(Config.WallpaperInfoUrlBuild(imageSize));
+                    break;
+                default:
+                    images = new List<BingImage>(1);
+                    break;
+            }
+             
+            return images;
         }
 
         /// <summary>
-        /// 
+        /// 获取图片真实URL
         /// </summary>
         /// <param name="url">WallpaperInfoUrl</param>
         /// <returns></returns>
-        public static List<BingImage> getURL(String url) {
+        private static List<BingImage> getURL(String url) {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            request.Method = "GET"; request.ContentType = "text/html;charset=UTF-8";
+            request.Method = "GET"; request.ContentType = "application/json;charset=UTF-8";
 
             string xmlDoc;
             //使用using自动注销HttpWebResponse
