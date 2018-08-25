@@ -1,14 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -19,7 +12,7 @@ namespace BingWallpaperTest
         public Form1()
         {
             InitializeComponent();
-            tbFileDirectory.Text = Environment.GetFolderPath(Environment.SpecialFolder.CommonPictures);
+            tbFileDirectory.Text = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures)+"\\bing";
         }
 
         private void tbFileDirectory_MouseDown(object sender, MouseEventArgs e)

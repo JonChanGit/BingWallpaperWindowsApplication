@@ -50,7 +50,7 @@
             // 
             this.btnGetImage.Location = new System.Drawing.Point(28, 166);
             this.btnGetImage.Name = "btnGetImage";
-            this.btnGetImage.Size = new System.Drawing.Size(75, 23);
+            this.btnGetImage.Size = new System.Drawing.Size(87, 23);
             this.btnGetImage.TabIndex = 0;
             this.btnGetImage.Text = "获取最新壁纸";
             this.btnGetImage.UseVisualStyleBackColor = true;
@@ -83,6 +83,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(121, 75);
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(148, 21);
             this.textBox1.TabIndex = 3;
             this.textBox1.Text = "1920";
@@ -100,6 +101,7 @@
             // 
             this.textBox2.Location = new System.Drawing.Point(121, 124);
             this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(148, 21);
             this.textBox2.TabIndex = 5;
             this.textBox2.Text = "1080";
@@ -134,15 +136,16 @@
             // tip
             // 
             this.tip.AutoSize = true;
-            this.tip.Location = new System.Drawing.Point(236, 171);
+            this.tip.Location = new System.Drawing.Point(251, 171);
             this.tip.Name = "tip";
             this.tip.Size = new System.Drawing.Size(0, 12);
             this.tip.TabIndex = 7;
             // 
             // openPath
             // 
+            this.openPath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.openPath.AutoSize = true;
-            this.openPath.Location = new System.Drawing.Point(371, 45);
+            this.openPath.Location = new System.Drawing.Point(371, 39);
             this.openPath.Name = "openPath";
             this.openPath.Size = new System.Drawing.Size(53, 12);
             this.openPath.TabIndex = 8;
@@ -174,9 +177,9 @@
             // 
             // btnGetRecentImage
             // 
-            this.btnGetRecentImage.Location = new System.Drawing.Point(121, 166);
+            this.btnGetRecentImage.Location = new System.Drawing.Point(139, 166);
             this.btnGetRecentImage.Name = "btnGetRecentImage";
-            this.btnGetRecentImage.Size = new System.Drawing.Size(91, 23);
+            this.btnGetRecentImage.Size = new System.Drawing.Size(106, 23);
             this.btnGetRecentImage.TabIndex = 11;
             this.btnGetRecentImage.Text = "获取最近8张壁纸";
             this.btnGetRecentImage.UseVisualStyleBackColor = true;
