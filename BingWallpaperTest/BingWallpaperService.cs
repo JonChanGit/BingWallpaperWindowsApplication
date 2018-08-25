@@ -60,7 +60,8 @@ namespace BingWallpaperTest
         /// </summary>
         /// <param name="image">XML解析的Image对象</param>
         /// <param name="saveImagesFolderLocation">本地保存地址</param>
-        public static void saveImage(BingImage image ,string saveImagesFolderLocation) {
+        public static string saveImage(BingImage image ,string saveImagesFolderLocation) {
+            string location = "";
             //设置墙纸
             Bitmap bmpWallpaper;
             WebRequest webreq = WebRequest.Create(Config.UrlPer+ image.Url);
@@ -76,8 +77,10 @@ namespace BingWallpaperTest
                     Directory.CreateDirectory(saveImagesFolderLocation);
                 }
                 //设置文件名为例：bing2017816.jpg
-                bmpWallpaper.Save(saveImagesFolderLocation + "\\bing" + image.StartDate + ".jpg", ImageFormat.Jpeg); //图片保存路径为相对路径，保存在程序的目录下
+                location = saveImagesFolderLocation + "\\bing" + image.StartDate + ".jpg";
+                bmpWallpaper.Save(location, ImageFormat.Jpeg);
             }
+            return location;
         }
 
         /// <summary>

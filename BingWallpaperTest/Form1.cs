@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -42,16 +43,23 @@ namespace BingWallpaperTest
 
             try
             {
-                BingWallpaperService.saveImage(image, tbFileDirectory.Text);
+                string location = BingWallpaperService.saveImage(image, tbFileDirectory.Text);
+                if (checkBox1.Checked)
+                {
+                    setWallpaperApi(location);
+                    tip.Text = "壁纸设置成功";
+                }
+                else {
+                    tip.Text = "保存成功";
+                }
+                tip.ForeColor = Color.Black;
             }
             catch (Exception ex)
             {
-                tip.Text = "保存图片失败：" + ex.Message;
+                tip.Text = "发生错误：" + ex.Message;
                 tip.ForeColor = Color.Red;
                 return;
             }
-            tip.Text = "保存成功";
-            tip.ForeColor = Color.Black;
         }
 
         private void openPath_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -74,7 +82,7 @@ namespace BingWallpaperTest
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            tip.Text = "暂未实现";
+            tip.Text = "";
             tip.ForeColor = Color.Green;
         }
 
@@ -118,6 +126,31 @@ namespace BingWallpaperTest
                 }
             }
             
+        }
+
+        //利用系统的用户接口设置壁纸
+        [DllImport("user32.dll", EntryPoint = "SystemParametersInfo")]
+        public static extern int SystemParametersInfo(
+                int uAction,
+                int uParam,
+                string lpvParam,
+                int fuWinIni
+                );
+        public static void setWallpaperApi(string strSavePath)
+        {
+            SystemParametersInfo(20, 1, strSavePath, 1);
+        }
+
+        private void cbWindowOpacity_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox cb = (CheckBox)sender;
+            if (cb.Checked)
+            {
+                this.Opacity = 0.8;
+            }
+            else {
+                this.Opacity = 1;
+            }
         }
     }
 }

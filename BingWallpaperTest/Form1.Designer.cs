@@ -44,6 +44,7 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.cbUseWatermark = new System.Windows.Forms.CheckBox();
             this.btnGetRecentImage = new System.Windows.Forms.Button();
+            this.cbWindowOpacity = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // btnGetImage
@@ -158,16 +159,16 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(28, 201);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(168, 16);
+            this.checkBox1.Size = new System.Drawing.Size(186, 16);
             this.checkBox1.TabIndex = 9;
-            this.checkBox1.Text = "获取成功后自动设置为壁纸";
+            this.checkBox1.Text = "获取1张成功后自动设置为壁纸";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // cbUseWatermark
             // 
             this.cbUseWatermark.AutoSize = true;
-            this.cbUseWatermark.Location = new System.Drawing.Point(218, 200);
+            this.cbUseWatermark.Location = new System.Drawing.Point(220, 201);
             this.cbUseWatermark.Name = "cbUseWatermark";
             this.cbUseWatermark.Size = new System.Drawing.Size(96, 16);
             this.cbUseWatermark.TabIndex = 10;
@@ -185,11 +186,23 @@
             this.btnGetRecentImage.UseVisualStyleBackColor = true;
             this.btnGetRecentImage.Click += new System.EventHandler(this.btnGetRecentImage_Click);
             // 
+            // cbWindowOpacity
+            // 
+            this.cbWindowOpacity.AutoSize = true;
+            this.cbWindowOpacity.Location = new System.Drawing.Point(333, 201);
+            this.cbWindowOpacity.Name = "cbWindowOpacity";
+            this.cbWindowOpacity.Size = new System.Drawing.Size(72, 16);
+            this.cbWindowOpacity.TabIndex = 12;
+            this.cbWindowOpacity.Text = "窗口透明";
+            this.cbWindowOpacity.UseVisualStyleBackColor = true;
+            this.cbWindowOpacity.CheckedChanged += new System.EventHandler(this.cbWindowOpacity_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(436, 229);
+            this.Controls.Add(this.cbWindowOpacity);
             this.Controls.Add(this.btnGetRecentImage);
             this.Controls.Add(this.cbUseWatermark);
             this.Controls.Add(this.checkBox1);
@@ -205,6 +218,9 @@
             this.Controls.Add(this.tbFileDirectory);
             this.Controls.Add(this.btnGetImage);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(452, 268);
+            this.MinimumSize = new System.Drawing.Size(452, 268);
             this.Name = "Form1";
             this.Text = "获取Bing图片";
             this.ResumeLayout(false);
@@ -229,6 +245,7 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox cbUseWatermark;
         private System.Windows.Forms.Button btnGetRecentImage;
+        private System.Windows.Forms.CheckBox cbWindowOpacity;
     }
 }
 
