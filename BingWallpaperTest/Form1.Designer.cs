@@ -38,19 +38,21 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.tip = new System.Windows.Forms.Label();
             this.openPath = new System.Windows.Forms.LinkLabel();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.cbUseWatermark = new System.Windows.Forms.CheckBox();
             this.btnGetRecentImage = new System.Windows.Forms.Button();
-            this.cbWindowOpacity = new System.Windows.Forms.CheckBox();
             this.cbInternational = new System.Windows.Forms.CheckBox();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.label6 = new System.Windows.Forms.Label();
+            this.bgw = new System.ComponentModel.BackgroundWorker();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnGetImage
             // 
-            this.btnGetImage.Location = new System.Drawing.Point(28, 166);
+            this.btnGetImage.Location = new System.Drawing.Point(26, 116);
             this.btnGetImage.Name = "btnGetImage";
             this.btnGetImage.Size = new System.Drawing.Size(87, 23);
             this.btnGetImage.TabIndex = 0;
@@ -86,7 +88,7 @@
             this.textBox1.Location = new System.Drawing.Point(121, 75);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(148, 21);
+            this.textBox1.Size = new System.Drawing.Size(76, 21);
             this.textBox1.TabIndex = 3;
             this.textBox1.Text = "1920";
             // 
@@ -101,10 +103,10 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(121, 124);
+            this.textBox2.Location = new System.Drawing.Point(262, 78);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(148, 21);
+            this.textBox2.Size = new System.Drawing.Size(84, 21);
             this.textBox2.TabIndex = 5;
             this.textBox2.Text = "1080";
             // 
@@ -120,25 +122,16 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(85, 127);
+            this.label4.Location = new System.Drawing.Point(226, 81);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(17, 12);
             this.label4.TabIndex = 6;
             this.label4.Text = "Y:";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(186, 104);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(11, 12);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "x";
-            // 
             // tip
             // 
             this.tip.AutoSize = true;
-            this.tip.Location = new System.Drawing.Point(251, 171);
+            this.tip.Location = new System.Drawing.Point(26, 9);
             this.tip.Name = "tip";
             this.tip.Size = new System.Drawing.Size(0, 12);
             this.tip.TabIndex = 7;
@@ -158,7 +151,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(28, 201);
+            this.checkBox1.Location = new System.Drawing.Point(26, 158);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(186, 16);
             this.checkBox1.TabIndex = 9;
@@ -169,7 +162,7 @@
             // cbUseWatermark
             // 
             this.cbUseWatermark.AutoSize = true;
-            this.cbUseWatermark.Location = new System.Drawing.Point(220, 201);
+            this.cbUseWatermark.Location = new System.Drawing.Point(28, 202);
             this.cbUseWatermark.Name = "cbUseWatermark";
             this.cbUseWatermark.Size = new System.Drawing.Size(96, 16);
             this.cbUseWatermark.TabIndex = 10;
@@ -179,7 +172,7 @@
             // 
             // btnGetRecentImage
             // 
-            this.btnGetRecentImage.Location = new System.Drawing.Point(139, 166);
+            this.btnGetRecentImage.Location = new System.Drawing.Point(137, 116);
             this.btnGetRecentImage.Name = "btnGetRecentImage";
             this.btnGetRecentImage.Size = new System.Drawing.Size(106, 23);
             this.btnGetRecentImage.TabIndex = 11;
@@ -187,40 +180,59 @@
             this.btnGetRecentImage.UseVisualStyleBackColor = true;
             this.btnGetRecentImage.Click += new System.EventHandler(this.btnGetRecentImage_Click);
             // 
-            // cbWindowOpacity
-            // 
-            this.cbWindowOpacity.AutoSize = true;
-            this.cbWindowOpacity.Location = new System.Drawing.Point(28, 223);
-            this.cbWindowOpacity.Name = "cbWindowOpacity";
-            this.cbWindowOpacity.Size = new System.Drawing.Size(72, 16);
-            this.cbWindowOpacity.TabIndex = 12;
-            this.cbWindowOpacity.Text = "窗口透明";
-            this.cbWindowOpacity.UseVisualStyleBackColor = true;
-            this.cbWindowOpacity.CheckedChanged += new System.EventHandler(this.cbWindowOpacity_CheckedChanged);
-            // 
             // cbInternational
             // 
             this.cbInternational.AutoSize = true;
-            this.cbInternational.Location = new System.Drawing.Point(220, 223);
+            this.cbInternational.Checked = true;
+            this.cbInternational.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbInternational.Location = new System.Drawing.Point(26, 180);
             this.cbInternational.Name = "cbInternational";
             this.cbInternational.Size = new System.Drawing.Size(108, 16);
             this.cbInternational.TabIndex = 13;
             this.cbInternational.Text = "获取国际版壁纸";
             this.cbInternational.UseVisualStyleBackColor = true;
+            this.cbInternational.CheckedChanged += new System.EventHandler(this.cbInternational_CheckedChanged);
+            // 
+            // trackBar1
+            // 
+            this.trackBar1.Location = new System.Drawing.Point(93, 224);
+            this.trackBar1.Maximum = 100;
+            this.trackBar1.Minimum = 20;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(104, 45);
+            this.trackBar1.TabIndex = 14;
+            this.trackBar1.TickFrequency = 10;
+            this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.trackBar1.Value = 100;
+            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(26, 224);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 12);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "窗口透明";
+            // 
+            // bgw
+            // 
+            this.bgw.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgw_DoWork);
+            this.bgw.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgw_RunWorkerCompleted);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(487, 248);
+            this.ClientSize = new System.Drawing.Size(487, 257);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.cbInternational);
-            this.Controls.Add(this.cbWindowOpacity);
             this.Controls.Add(this.btnGetRecentImage);
             this.Controls.Add(this.cbUseWatermark);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.openPath);
             this.Controls.Add(this.tip);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox2);
@@ -233,6 +245,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "获取Bing图片";
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -249,14 +262,15 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label tip;
         private System.Windows.Forms.LinkLabel openPath;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox cbUseWatermark;
         private System.Windows.Forms.Button btnGetRecentImage;
-        private System.Windows.Forms.CheckBox cbWindowOpacity;
         private System.Windows.Forms.CheckBox cbInternational;
+        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.Label label6;
+        private System.ComponentModel.BackgroundWorker bgw;
     }
 }
 

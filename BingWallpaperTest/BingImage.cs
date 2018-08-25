@@ -18,5 +18,8 @@ namespace BingWallpaperTest
         [XmlElementAttribute("startdate")]
         [DataMember(Name = "startdate")]
         public string StartDate { get; set; }
+        [XmlElementAttribute("title")]
+        [DataMember(Name = "title")]
+        public string Title { get; set; }
     }
 }

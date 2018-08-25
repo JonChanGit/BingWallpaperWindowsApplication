@@ -91,8 +91,8 @@ namespace BingWallpaperTest
                 {
                     Directory.CreateDirectory(saveImagesFolderLocation);
                 }
-                //设置文件名为例：bing2017816.jpg
-                location = saveImagesFolderLocation + "\\bing" + image.StartDate + ".jpg";
+                //设置文件名为例：bing_2017816_title.jpg
+                location = saveImagesFolderLocation + "\\bing_" + image.StartDate +"_"+ image.Title + ".jpg";
                 bmpWallpaper.Save(location, ImageFormat.Jpeg);
             }
             return location;

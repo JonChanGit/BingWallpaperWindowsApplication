@@ -43,7 +43,7 @@ namespace BingWallpaperTest
             BingImage image = null;
             try
             {
-                image = BingWallpaperService.getURL(Config.SiteType.znCN,1)[0];
+                image = BingWallpaperService.getURL(cbInternational.Checked?Config.SiteType.International : Config.SiteType.znCN, 1)[0];
             }
             catch (Exception ex)
             {
@@ -105,20 +105,19 @@ namespace BingWallpaperTest
         /// <param name="e"></param>
         private void btnGetRecentImage_Click(object sender, EventArgs e)
         {
-            getImage();
-            tip.Text = "开始获取图片";
+            if (bgw.IsBusy)
+            {
+                tip.Text = "上次操作未完成，请等待";
+                tip.ForeColor = Color.Red;
+            }
+            else {
+                bgw.RunWorkerAsync();
+                tip.Text = "开始获取图片";
+                tip.ForeColor = Color.HotPink;
+            }
+           
         }
-
-        private async void getImage() {
-            await Task.Run(() => startGetImage());
-        }
-
-        /// <summary>
-        /// 开始异步获取图片
-        /// </summary>
-        private async void startGetImage() {
-            getImage(8);
-        }
+ 
 
 
         /// <summary>
@@ -127,7 +126,7 @@ namespace BingWallpaperTest
         /// <param name="index">张数</param>
         private void getImage(int index)
         { 
-            List<BingImage> images = BingWallpaperService.getURL(Config.SiteType.znCN,index);
+            List<BingImage> images = BingWallpaperService.getURL(cbInternational.Checked ? Config.SiteType.International : Config.SiteType.znCN, index);
 
             foreach(BingImage iamge in images) {
                 try
@@ -165,6 +164,31 @@ namespace BingWallpaperTest
             else {
                 this.Opacity = 1;
             }
+        }
+
+        private void cbInternational_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            TrackBar tb = sender as TrackBar;
+            this.Opacity = 1.0 * tb.Value/100;
+        }
+
+        /// <summary>
+        /// 开始异步获取图片
+        /// </summary>
+        private void bgw_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            getImage(8);
+        }
+
+        private void bgw_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {
+            tip.Text = "操作完成";
+            tip.ForeColor = Color.Black;
         }
     }
 }
