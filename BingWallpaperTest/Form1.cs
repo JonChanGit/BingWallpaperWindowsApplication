@@ -22,6 +22,11 @@ namespace BingWallpaperTest
             tbFileDirectory.Text = fbdSaveImagesFolderLocation.SelectedPath;
         }
 
+        /// <summary>
+        /// 获取1图片
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGetImage_Click(object sender, EventArgs e)
         {
             tip.Text = "";
@@ -86,6 +91,11 @@ namespace BingWallpaperTest
             tip.ForeColor = Color.Green;
         }
 
+        /// <summary>
+        /// 批量获取图片
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGetRecentImage_Click(object sender, EventArgs e)
         {
             getImage();
@@ -100,9 +110,7 @@ namespace BingWallpaperTest
         /// 开始异步获取图片
         /// </summary>
         private async void startGetImage() {
-            for (int x = 0; x < 8; x++) {
-                getImage(x);
-            }
+            getImage(8);
         }
 
 

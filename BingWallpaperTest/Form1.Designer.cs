@@ -45,6 +45,7 @@
             this.cbUseWatermark = new System.Windows.Forms.CheckBox();
             this.btnGetRecentImage = new System.Windows.Forms.Button();
             this.cbWindowOpacity = new System.Windows.Forms.CheckBox();
+            this.cbInternational = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // btnGetImage
@@ -63,7 +64,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbFileDirectory.Location = new System.Drawing.Point(87, 36);
             this.tbFileDirectory.Name = "tbFileDirectory";
-            this.tbFileDirectory.Size = new System.Drawing.Size(264, 21);
+            this.tbFileDirectory.Size = new System.Drawing.Size(315, 21);
             this.tbFileDirectory.TabIndex = 1;
             this.tbFileDirectory.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tbFileDirectory_MouseDown);
             // 
@@ -146,7 +147,7 @@
             // 
             this.openPath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.openPath.AutoSize = true;
-            this.openPath.Location = new System.Drawing.Point(371, 39);
+            this.openPath.Location = new System.Drawing.Point(422, 39);
             this.openPath.Name = "openPath";
             this.openPath.Size = new System.Drawing.Size(53, 12);
             this.openPath.TabIndex = 8;
@@ -189,7 +190,7 @@
             // cbWindowOpacity
             // 
             this.cbWindowOpacity.AutoSize = true;
-            this.cbWindowOpacity.Location = new System.Drawing.Point(333, 201);
+            this.cbWindowOpacity.Location = new System.Drawing.Point(28, 223);
             this.cbWindowOpacity.Name = "cbWindowOpacity";
             this.cbWindowOpacity.Size = new System.Drawing.Size(72, 16);
             this.cbWindowOpacity.TabIndex = 12;
@@ -197,11 +198,22 @@
             this.cbWindowOpacity.UseVisualStyleBackColor = true;
             this.cbWindowOpacity.CheckedChanged += new System.EventHandler(this.cbWindowOpacity_CheckedChanged);
             // 
+            // cbInternational
+            // 
+            this.cbInternational.AutoSize = true;
+            this.cbInternational.Location = new System.Drawing.Point(220, 223);
+            this.cbInternational.Name = "cbInternational";
+            this.cbInternational.Size = new System.Drawing.Size(108, 16);
+            this.cbInternational.TabIndex = 13;
+            this.cbInternational.Text = "获取国际版壁纸";
+            this.cbInternational.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(436, 229);
+            this.ClientSize = new System.Drawing.Size(487, 248);
+            this.Controls.Add(this.cbInternational);
             this.Controls.Add(this.cbWindowOpacity);
             this.Controls.Add(this.btnGetRecentImage);
             this.Controls.Add(this.cbUseWatermark);
@@ -219,8 +231,6 @@
             this.Controls.Add(this.btnGetImage);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(452, 268);
-            this.MinimumSize = new System.Drawing.Size(452, 268);
             this.Name = "Form1";
             this.Text = "获取Bing图片";
             this.ResumeLayout(false);
@@ -246,6 +256,7 @@
         private System.Windows.Forms.CheckBox cbUseWatermark;
         private System.Windows.Forms.Button btnGetRecentImage;
         private System.Windows.Forms.CheckBox cbWindowOpacity;
+        private System.Windows.Forms.CheckBox cbInternational;
     }
 }
 

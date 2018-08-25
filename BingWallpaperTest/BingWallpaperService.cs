@@ -10,6 +10,7 @@ using System.Text.RegularExpressions;
 using BingWallpaperTest.Utils;
 using System.Resources;
 using System.Xml.Serialization;
+using System.Runtime.Serialization.Json;
 
 namespace BingWallpaperTest
 {
@@ -41,19 +42,14 @@ namespace BingWallpaperTest
                     xmlDoc = reader.ReadToEnd();
                 }
             }
+            BingImages images = null;
+            using (var ms = new MemoryStream(Encoding.Unicode.GetBytes(xmlDoc))) {
+                DataContractJsonSerializer deseralizer = new DataContractJsonSerializer(typeof(BingImages));
+                images = deseralizer.ReadObject(ms) as BingImages;
 
-            return analyticalXml(xmlDoc).images;
-
-            // 使用正则表达式解析标签（字符串），当然你也可以使用XmlDocument类或XDocument类
-            //Regex regex = new Regex("<Url>(?<MyUrl>.*?)</Url>", RegexOptions.IgnoreCase);
-            //MatchCollection collection = regex.Matches(xmlDoc);
-            // 取得匹配项列表
-           // string ImageUrl = Config.UrlPer + collection[0].Groups["MyUrl"].Value;
-           // if (true)
-           // {
-           //     ImageUrl = ImageUrl.Replace("1366x768", "1920x1080");
-           // }
-            // return ImageUrl;
+            }
+            return images.images;// analyticalXml(xmlDoc).images;
+             
         }
         /// <summary>
         /// 
