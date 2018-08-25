@@ -243,6 +243,8 @@
             this.Controls.Add(this.btnGetImage);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(503, 296);
+            this.MinimumSize = new System.Drawing.Size(503, 296);
             this.Name = "Form1";
             this.Text = "获取Bing图片";
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
