@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btnGetImage = new System.Windows.Forms.Button();
             this.tbFileDirectory = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,6 +42,8 @@
             this.tip = new System.Windows.Forms.Label();
             this.openPath = new System.Windows.Forms.LinkLabel();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.cbUseWatermark = new System.Windows.Forms.CheckBox();
+            this.btnGetRecentImage = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnGetImage
@@ -49,7 +52,7 @@
             this.btnGetImage.Name = "btnGetImage";
             this.btnGetImage.Size = new System.Drawing.Size(75, 23);
             this.btnGetImage.TabIndex = 0;
-            this.btnGetImage.Text = "获取壁纸";
+            this.btnGetImage.Text = "获取最新壁纸";
             this.btnGetImage.UseVisualStyleBackColor = true;
             this.btnGetImage.Click += new System.EventHandler(this.btnGetImage_Click);
             // 
@@ -131,7 +134,7 @@
             // tip
             // 
             this.tip.AutoSize = true;
-            this.tip.Location = new System.Drawing.Point(132, 166);
+            this.tip.Location = new System.Drawing.Point(236, 171);
             this.tip.Name = "tip";
             this.tip.Size = new System.Drawing.Size(0, 12);
             this.tip.TabIndex = 7;
@@ -156,12 +159,36 @@
             this.checkBox1.TabIndex = 9;
             this.checkBox1.Text = "获取成功后自动设置为壁纸";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // cbUseWatermark
+            // 
+            this.cbUseWatermark.AutoSize = true;
+            this.cbUseWatermark.Location = new System.Drawing.Point(218, 200);
+            this.cbUseWatermark.Name = "cbUseWatermark";
+            this.cbUseWatermark.Size = new System.Drawing.Size(96, 16);
+            this.cbUseWatermark.TabIndex = 10;
+            this.cbUseWatermark.Text = "使用Bing水印";
+            this.cbUseWatermark.UseVisualStyleBackColor = true;
+            this.cbUseWatermark.CheckedChanged += new System.EventHandler(this.cbUseWatermark_CheckedChanged);
+            // 
+            // btnGetRecentImage
+            // 
+            this.btnGetRecentImage.Location = new System.Drawing.Point(121, 166);
+            this.btnGetRecentImage.Name = "btnGetRecentImage";
+            this.btnGetRecentImage.Size = new System.Drawing.Size(91, 23);
+            this.btnGetRecentImage.TabIndex = 11;
+            this.btnGetRecentImage.Text = "获取最近8张壁纸";
+            this.btnGetRecentImage.UseVisualStyleBackColor = true;
+            this.btnGetRecentImage.Click += new System.EventHandler(this.btnGetRecentImage_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(436, 229);
+            this.Controls.Add(this.btnGetRecentImage);
+            this.Controls.Add(this.cbUseWatermark);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.openPath);
             this.Controls.Add(this.tip);
@@ -174,8 +201,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbFileDirectory);
             this.Controls.Add(this.btnGetImage);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "获取Bing图片";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,6 +224,8 @@
         private System.Windows.Forms.Label tip;
         private System.Windows.Forms.LinkLabel openPath;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox cbUseWatermark;
+        private System.Windows.Forms.Button btnGetRecentImage;
     }
 }
 
