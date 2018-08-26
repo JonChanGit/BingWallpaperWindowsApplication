@@ -88,7 +88,7 @@ namespace BingWallpaperTest
 
         private void cbUseWatermark_CheckedChanged(object sender, EventArgs e)
         {
-            tip.Text = "暂未实现";
+            tip.Text = "";
             tip.ForeColor = Color.Green;
         }
 
