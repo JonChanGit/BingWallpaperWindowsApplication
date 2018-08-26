@@ -47,6 +47,7 @@
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.label6 = new System.Windows.Forms.Label();
             this.bgw = new System.ComponentModel.BackgroundWorker();
+            this.cbAutoExecute = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -162,7 +163,7 @@
             // cbUseWatermark
             // 
             this.cbUseWatermark.AutoSize = true;
-            this.cbUseWatermark.Location = new System.Drawing.Point(28, 202);
+            this.cbUseWatermark.Location = new System.Drawing.Point(250, 180);
             this.cbUseWatermark.Name = "cbUseWatermark";
             this.cbUseWatermark.Size = new System.Drawing.Size(96, 16);
             this.cbUseWatermark.TabIndex = 10;
@@ -220,11 +221,23 @@
             this.bgw.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgw_DoWork);
             this.bgw.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgw_RunWorkerCompleted);
             // 
+            // cbAutoExecute
+            // 
+            this.cbAutoExecute.AutoSize = true;
+            this.cbAutoExecute.Enabled = false;
+            this.cbAutoExecute.Location = new System.Drawing.Point(250, 158);
+            this.cbAutoExecute.Name = "cbAutoExecute";
+            this.cbAutoExecute.Size = new System.Drawing.Size(120, 16);
+            this.cbAutoExecute.TabIndex = 16;
+            this.cbAutoExecute.Text = "每日自动获取壁纸";
+            this.cbAutoExecute.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(487, 257);
+            this.Controls.Add(this.cbAutoExecute);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.cbInternational);
@@ -273,6 +286,7 @@
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.Label label6;
         private System.ComponentModel.BackgroundWorker bgw;
+        private System.Windows.Forms.CheckBox cbAutoExecute;
     }
 }
 

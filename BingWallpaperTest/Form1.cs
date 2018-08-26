@@ -54,7 +54,7 @@ namespace BingWallpaperTest
 
             try
             {
-                string location = BingWallpaperService.saveImage(image, tbFileDirectory.Text);
+                string location = BingWallpaperService.saveImage(image, tbFileDirectory.Text,cbUseWatermark.Checked);
                 if (checkBox1.Checked)
                 {
                     setWallpaperApi(location);
@@ -131,7 +131,7 @@ namespace BingWallpaperTest
             foreach(BingImage iamge in images) {
                 try
                 {
-                    BingWallpaperService.saveImage(iamge, tbFileDirectory.Text);
+                    BingWallpaperService.saveImage(iamge, tbFileDirectory.Text, cbUseWatermark.Checked);
                 }
                 catch (Exception ex)
                 {

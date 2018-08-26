@@ -75,7 +75,7 @@ namespace BingWallpaperTest
         /// </summary>
         /// <param name="image">XML解析的Image对象</param>
         /// <param name="saveImagesFolderLocation">本地保存地址</param>
-        public static string saveImage(BingImage image ,string saveImagesFolderLocation) {
+        public static string saveImage(BingImage image ,string saveImagesFolderLocation,Boolean useWaterImage) {
             string location = "";
             //设置墙纸
             Bitmap bmpWallpaper;
@@ -94,6 +94,10 @@ namespace BingWallpaperTest
                 //设置文件名为例：bing_2017816_title.jpg
                 location = saveImagesFolderLocation + "\\bing_" + image.StartDate +"_"+ image.Title + ".jpg";
                 bmpWallpaper.Save(location, ImageFormat.Jpeg);
+            }
+            if (useWaterImage)
+            {
+                MyWaterImageService.Process(location, ImagePosition.RigthBottom, saveImagesFolderLocation);
             }
             return location;
         }
